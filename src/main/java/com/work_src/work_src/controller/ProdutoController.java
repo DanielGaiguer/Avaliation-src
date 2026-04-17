@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ProdutoController {
@@ -19,10 +20,14 @@ public class ProdutoController {
     private ProdutoService service;
         
     @GetMapping
-    public String adicionarProduto(Model model) {
-        
+    public String adicionarProdutoGet(Model model) {
         return "/adicionar";
     } 
+    
+//    @PostMapping
+//    public String adicionarProdutoPost(@RequestParam){
+//        
+//    }
     
     @GetMapping
     public String listarProdutos(Model model) {
