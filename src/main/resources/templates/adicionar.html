@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </header>
         <main>
             <h2>Adicionar Dados</h2>
-            <form th:action="@{/adicionar}" th:object="${prod}" method="post">
+            <form th:action="@{/adicionar}" th:object="${produto}" method="post">
                 <label>Nome:</label>
                 <input type="text" th:field="*{nome}" />
                 <br /><br />
@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <input type="number" th:field="*{preco}" />
                 <br/><br/>
                 <label>Estoque: </label>
-                <input type="number" th:field="*{estpque}" />
+                <input type="number" th:field="*{estoque}" />
                 <br/><br/>
                 <button type="submit">Salvar</button>
             </form>

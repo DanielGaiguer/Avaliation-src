@@ -50,7 +50,7 @@ public class ProdutoDAO {
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
             
-            stmt = conn.prepareStatement("INSERT INTO produto (nome, categoria, preco, estoque)");
+           stmt = conn.prepareStatement("INSERT INTO produto (nome, categoria, preco, estoque) VALUES (?, ?, ?, ?)");
             
             stmt.setString(1, produto.getNome());
             stmt.setString(2, produto.getCategoria());

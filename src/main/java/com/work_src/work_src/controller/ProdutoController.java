@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -19,17 +20,19 @@ public class ProdutoController {
     @Autowired 
     private ProdutoService service;
         
-    @GetMapping
-    public String adicionarProdutoGet(Model model) {
-        return "/adicionar";
-    } 
+    @GetMapping("/adicionar")
+    public String adicionarProduto(Model model) {
+        model.addAttribute("produto", new ProdutoDTO());
+        return "adicionar";
+    }
     
-//    @PostMapping
-//    public String adicionarProdutoPost(@RequestParam){
-//        
-//    }
+    @PostMapping("/adicionar")
+    public String adicionarProduto(@ModelAttribute("produto") ProdutoDTO produto){
+        service.adicionarProduto(produto);
+        return "redirect:produtos";
+    }
     
-    @GetMapping
+    @GetMapping("produtos")
     public String listarProdutos(Model model) {
         List<ProdutoDTO> listarProdutos = service.listarProdutos();
         model.addAttribute("lista", listarProdutos);
